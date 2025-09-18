@@ -1,0 +1,14 @@
+// vercel.json — تنظیمات دیپلوی روی Vercel برای Fastify + Prisma
+{
+  "version": 2,
+  "builds": [
+    { "src": "server.ts", "use": "@vercel/node" },
+    { "src": "prisma/schema.prisma", "use": "@vercel/prisma" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "server.ts" }
+  ],
+  "env": {
+    "DATABASE_URL": "${DATABASE_URL}"
+  }
+}
